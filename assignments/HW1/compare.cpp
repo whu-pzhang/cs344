@@ -4,7 +4,7 @@
 
 #include "utils.h"
 
-void compareImages(std::string reference_filename, std::string test_filename, 
+void compareImages(std::string reference_filename, std::string test_filename,
                    bool useEpsCheck, double perPixelError, double globalError)
 {
   cv::Mat reference = cv::imread(reference_filename, -1);
@@ -29,7 +29,8 @@ void compareImages(std::string reference_filename, std::string test_filename,
   unsigned char *referencePtr = reference.ptr<unsigned char>(0);
   unsigned char *testPtr = test.ptr<unsigned char>(0);
 
-  if (useEpsCheck) {
+  if (useEpsCheck)
+  {
     checkResultsEps(referencePtr, testPtr, reference.rows * reference.cols * reference.channels(), perPixelError, globalError);
   }
   else
